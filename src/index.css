@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* XINNET Gaming Platform Design System */
+
+@layer base {
+  :root {
+    /* Gaming-inspired color palette */
+    --background: 220 25% 8%;
+    --foreground: 210 40% 98%;
+    
+    /* Gaming accent colors */
+    --gaming-primary: 142 75% 50%;
+    --gaming-secondary: 280 65% 60%;
+    --gaming-accent: 35 100% 55%;
+    
+    /* Semantic color system */
+    --card: 220 30% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 75% 50%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 35 100% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 25% 15%;
+    --ring: 142 75% 50%;
+
+    --radius: 0.75rem;
+    
+    /* Gaming gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 75% 50%), hsl(142 75% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 65% 60%), hsl(280 65% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(35 100% 55%), hsl(35 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 75% 50%) 0%, hsl(280 65% 60%) 50%, hsl(35 100% 55%) 100%);
+    
+    /* Gaming effects */
+    --glow-primary: 0 0 30px hsl(142 75% 50% / 0.5);
+    --glow-secondary: 0 0 30px hsl(280 65% 60% / 0.5);
+    --glow-accent: 0 0 30px hsl(35 100% 55% / 0.5);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Gaming button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary via-gaming-secondary to-accent text-primary-foreground;
+    @apply hover:shadow-[var(--glow-primary)] transition-all duration-300;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-gaming {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply shadow-lg hover:shadow-[var(--glow-primary)] transition-all duration-300;
+  }
+  
+  .btn-secondary-gaming {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+    @apply border border-border hover:border-primary/50 transition-all duration-300;
+  }
+  
+  /* Gaming cards */
+  .game-card {
+    @apply bg-card/50 backdrop-blur-sm border border-border rounded-lg;
+    @apply hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20;
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+  
+  /* Gaming animations */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
